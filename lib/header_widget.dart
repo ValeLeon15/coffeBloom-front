@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/widgets/pages/suscripciones_page.dart';
+import 'home_page.dart';
+import 'widgets/pages/nuestro_producto_page.dart';
 
 class HeaderWidget extends StatelessWidget {
   final Color headerColor = Color(0xFFF8C191);
@@ -29,11 +32,12 @@ class HeaderWidget extends StatelessWidget {
               Icon(Icons.search),
               Row(
                 children: [
-                  navItem('BARRAS'),
-                  navItem('TÉ'),
-                  navItem('TRUFAS'),
-                  navItem('PAQUETES'),
-                  navItem('SUSCRIPCIONES'),
+                  navItem(context, 'INICIO', HomePage()),
+                  navItem(context, 'NUESTRO PRODUCTO', NuestroProductoPage()),
+                  //navItem(context, 'TRAZABILIDAD', TrazabilidadPage()),
+                  //navItem(context, 'PRODUCTORES', ProductoresPage()),
+                  //navItem(context, 'SOSTENIBILIDAD', SostenibilidadPage()),
+                  navItem(context, 'SUSCRIPCIONES', SuscripcionesPage()),
                 ],
               ),
               Row(
@@ -50,57 +54,23 @@ class HeaderWidget extends StatelessWidget {
     );
   }
 
-  Widget navItem(String text) {
+  Widget navItem(BuildContext context, String text, Widget destination) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Text(text,
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-    );
-  }
-}
-
-class HeroWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 500,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(
-              'assets/hero_image.jpg', // Cambia la imagen por tu ruta
-              fit: BoxFit.cover,
-            ),
-          ),
-          Positioned.fill(
-            child: Container(color: Colors.black.withOpacity(0.4)),
-          ),
-          Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'Disfruta de los Mejores Productos de\nSuscripción de Chocolate',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  'Descubre un mundo de chocolate gourmet entregado a tu puerta.',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
+      child: InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => destination),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
 }
+
+
+
 
