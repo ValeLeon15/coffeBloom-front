@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'header_widget.dart';
-import 'hero_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +13,6 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             HeaderWidget(),
-            HeroWidget(),
            // ProductSectionWidget(),
             //SubscriptionSectionWidget(),
             //FooterWidget(),
