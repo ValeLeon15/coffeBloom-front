@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/widgets/pages/carrito_page.dart';
 import 'package:untitled/widgets/pages/productoresPage.dart';
 import 'package:untitled/widgets/pages/suscripciones_page.dart';
 import 'package:untitled/widgets/pages/trazabilidadPage.dart';
@@ -46,7 +47,15 @@ class HeaderWidget extends StatelessWidget {
                 children: [
                   Icon(Icons.person_outline),
                   SizedBox(width: 10),
-                  Icon(Icons.shopping_cart_outlined),
+                  IconButton(
+                    icon: Icon(Icons.shopping_cart_outlined),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => CarritoPage()),
+                      );
+                    },
+                  ),
                 ],
               ),
             ],

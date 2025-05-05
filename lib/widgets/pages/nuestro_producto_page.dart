@@ -176,7 +176,7 @@ class NuestroProductoPage extends StatelessWidget {
           ),
           SizedBox(height: 16),
           Text(
-            '¡Prueba los diferentes sabores disponibles de cacao\n'
+            '¡Prueba los nuevos diferentes sabores de cacao\n'
                 'y elige tu variedad favorita !',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -231,9 +231,6 @@ class NuestroProductoPage extends StatelessWidget {
       ),
     );
   }
-
-
-
 
   Widget _buildCTASection() {
     return Padding(

@@ -61,7 +61,13 @@ flutter:
     - assets/images/cafemanos.webp
     - assets/images/rojoBurbuja.png
     - assets/images/verdeBurbuja.png
-    - assets/images/azulBurbuja.png
+    - assets/images/cajaCacaoCerrada.png
+    - assets/images/cajaCacaoClaro.png
+    - assets/images/cajaCacaoOscuro.png
+    - assets/images/cajaCacao12g.png
+    - assets/images/dosCajasCacao.png
+
+
 
 
 
