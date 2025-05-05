@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/widgets/app_scaffold.dart';
 
+import '../../header_widget.dart';
+
 
 class NuestroProductoPage extends StatelessWidget {
   const NuestroProductoPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
+    return Scaffold( // puedes usar Scaffold normal
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            HeaderWidget(), // 👈 AGREGAMOS EL HEADER
             _buildBanner(context),
             _buildIntroSection(),
             _buildFeaturesSection(),
@@ -145,30 +149,91 @@ class NuestroProductoPage extends StatelessWidget {
 
   Widget _buildFlavorsSection() {
     final flavors = [
-      'Cacao + Canela & Naranja 🍊',
-      'Cacao + Jengibre & Miel 🍯',
-      'Cacao + Ají dulce 🌶️',
+      {'image': 'assets/images/rojoBurbuja.png', 'label': 'Cacao + Canela & Naranja 🍊'},
+      {'image': 'assets/images/verdeBurbuja.png', 'label': 'Cacao + Jengibre & Miel 🍯'},
+      {'image': 'assets/images/azulBurbuja.png', 'label': 'Cacao + Ají dulce 🌶️'},
     ];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Column(
         children: [
-          Text(
-            'Sabores disponibles',
-            style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xFF2E4A2C),
+              shape: StadiumBorder(),
+              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+            ),
+            child: Text(
+              'VER TODO',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
+            ),
           ),
-          SizedBox(height: 12),
-          ...flavors.map((flavor) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Text(flavor,
-                    style: TextStyle(fontSize: 16, color: Colors.black87)),
-              )),
+          SizedBox(height: 16),
+          Text(
+            '¡Prueba los diferentes sabores disponibles de cacao\n'
+                'y elige tu variedad favorita !',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
+          ),
+          SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: flavors.map((flavor) {
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        // ❌ QUITAMOS ClipOval
+                        Image.asset(
+                          flavor['image']!,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                        Text(
+                          flavor['label']!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            shadows: [
+                              Shadow(
+                                blurRadius: 4,
+                                color: Colors.black.withOpacity(0.6),
+                                offset: Offset(1, 1),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
   }
+
+
+
 
   Widget _buildCTASection() {
     return Padding(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/widgets/pages/productoresPage.dart';
 import 'package:untitled/widgets/pages/suscripciones_page.dart';
+import 'package:untitled/widgets/pages/trazabilidadPage.dart';
 import 'home_page.dart';
 import 'widgets/pages/nuestro_producto_page.dart';
 
@@ -34,8 +36,8 @@ class HeaderWidget extends StatelessWidget {
                 children: [
                   navItem(context, 'INICIO', HomePage()),
                   navItem(context, 'NUESTRO PRODUCTO', NuestroProductoPage()),
-                  //navItem(context, 'TRAZABILIDAD', TrazabilidadPage()),
-                  //navItem(context, 'PRODUCTORES', ProductoresPage()),
+                  navItem(context, 'TRAZABILIDAD', TrazabilidadPage()), //blockchain
+                  navItem(context, 'PRODUCTORES', ProductoresPage()),
                   //navItem(context, 'SOSTENIBILIDAD', SostenibilidadPage()),
                   navItem(context, 'SUSCRIPCIONES', SuscripcionesPage()),
                 ],

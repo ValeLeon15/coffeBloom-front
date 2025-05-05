@@ -4,7 +4,7 @@ class FeaturesSectionWidget extends StatelessWidget {
   final List<Map<String, String>> features = [
     {'icon': 'V', 'label': 'Vegan'},
     {'icon': 'GF', 'label': 'Gluten Free'},
-    {'icon': 'NON GMO', 'label': 'Non GMO'},
+    {'icon': '', 'label': 'Non GMO'},
     {'icon': 'SF', 'label': 'Soy Free'},
     {'icon': '⭐', 'label': 'Puerto Rican Grown'},
     {'icon': '📍', 'label': 'Single Origin'},
@@ -29,13 +29,13 @@ class FeaturesSectionWidget extends StatelessWidget {
             return Column(
               children: [
                 CircleAvatar(
-                  radius: 30,
+                  radius: 60,
                   backgroundColor: Colors.grey.shade200,
                   child: Text(
                     feature['icon']!,
                     style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black87,
+                      fontSize: 32,
+                      color: Colors.green.shade900,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -58,7 +58,7 @@ class FeaturesSectionWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 40),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -77,13 +77,13 @@ class FeaturesSectionWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 60,
-        height: 60,
+        width: 230,
+        height: 230,
         decoration: BoxDecoration(
           color: Colors.black87,
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Icon(icon, color: Color(0xFFF8C191), size: 32),
+        child: Icon(icon, color: Color(0xFFF8C191), size: 50),
       ),
     );
   }
