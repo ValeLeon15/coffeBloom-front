@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  animate_do: ^3.0.2
   cupertino_icons: ^1.0.8
   flutter_native_splash: ^2.4.4
 
@@ -66,6 +67,7 @@ flutter:
     - assets/images/cajaCacaoOscuro.png
     - assets/images/cajaCacao12g.png
     - assets/images/dosCajasCacao.png
+    - assets/images/cacao_banner.png
 
 
 
